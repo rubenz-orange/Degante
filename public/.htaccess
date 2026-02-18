@@ -1,0 +1,3 @@
+# Jiménez de Gante — Custom 404 Routing
+ErrorDocument 404 /404.html
+

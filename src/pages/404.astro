@@ -1,0 +1,101 @@
+---
+import LayoutMinimal from "../layouts/Layout.astro";
+import logo from "../assets/logo.svg";
+
+// We use Layout to maintain SEO and favicons, but we could make a specific minimal one if needed.
+// For now, let's create a full-screen dark 404 experience.
+---
+
+<LayoutMinimal title="Página no encontrada | 404">
+  <!-- Note: Layout.astro includes Header and Footer. 
+       If we want a truly minimal 404 like the image, we should normally use a different layout.
+       However, I will implement the 404 content with a full-screen dark overlay to match the image.
+  -->
+  <section
+    class="fixed inset-0 z-[200] bg-dark flex flex-col items-center justify-center text-center px-6"
+  >
+    <!-- Visual background glow (matching the reference image's aesthetic) -->
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(243,156,18,0.08),_transparent_70%)]"
+    >
+    </div>
+
+    <div class="relative z-10 reveal active">
+      <!-- Firm Isotype (adapted from the "leaf" in the image) -->
+      <div class="mb-8 flex justify-center">
+        <div
+          class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-xl border border-primary/30"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 text-primary"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      <h1
+        class="text-[12rem] md:text-[20rem] font-black leading-none text-white tracking-tighter opacity-10 select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
+      >
+        404
+      </h1>
+
+      <div class="relative z-10">
+        <h2
+          class="text-7xl md:text-9xl font-black text-primary mb-6 tracking-tighter"
+        >
+          404.
+        </h2>
+        <p
+          class="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto mb-12 leading-relaxed"
+        >
+          Lo sentimos, la página que busca no existe o ha sido movida.
+          <span class="text-white font-medium block mt-2"
+            >Por favor, verifique la URL e intente de nuevo.</span
+          >
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a
+            href="/"
+            class="bg-primary hover:bg-white text-dark font-black tracking-widest uppercase text-xs px-12 py-5 rounded-full transition-all duration-500 shadow-xl shadow-primary/20"
+          >
+            Inicio
+          </a>
+          <a
+            href="/ubicacion"
+            class="border border-white/20 hover:bg-white hover:text-dark text-white font-black tracking-widest uppercase text-xs px-12 py-5 rounded-full transition-all duration-500"
+          >
+            Contacto
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Branding Footer -->
+    <div class="absolute bottom-12 left-0 w-full text-center">
+      <p
+        class="text-[10px] font-black tracking-[0.3em] text-slate-600 uppercase"
+      >
+        Jiménez de Gante Arquitectos
+      </p>
+    </div>
+  </section>
+</LayoutMinimal>
+
+<style>
+  /* Hide the main header and footer for this page to achieve the full-page effect */
+  :global(#main-header),
+  :global(footer) {
+    display: none !important;
+  }
+</style>

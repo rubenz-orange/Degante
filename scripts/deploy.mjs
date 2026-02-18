@@ -34,7 +34,7 @@ const deployConfig = {
   port: parseInt(process.env.FTP_PORT) || 21,
   localRoot: resolve(rootDir, 'dist'),
   remoteRoot: process.env.FTP_REMOTE_PATH || '/public_html',
-  include: ['**/*'],
+  include: ["**/*", ".htaccess"],
   exclude: ['.DS_Store', '**/.DS_Store', 'Thumbs.db'],
   // ⚠️ deleteRemote: false durante desarrollo/pruebas
   // Cambiar a true SOLO para el deploy final que reemplaza WordPress
