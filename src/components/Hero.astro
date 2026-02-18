@@ -11,7 +11,7 @@ const {
   title,
   subtitle,
   ctaText = "Iniciar Proyecto",
-  ctaLink = `${import.meta.env.BASE_URL}/ubicacion`,
+  ctaLink = `${import.meta.env.BASE_URL}ubicacion`,
   backgroundImage = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=90&w=1920",
 } = Astro.props;
 ---
@@ -71,7 +71,7 @@ const {
           {ctaText}
         </a>
         <a
-          href={`${import.meta.env.BASE_URL}/obras`}
+          href={`${import.meta.env.BASE_URL}obras`}
           class="group flex items-center gap-4 text-white font-bold tracking-widest uppercase text-xs"
         >
           <span

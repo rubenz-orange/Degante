@@ -38,7 +38,7 @@ const deployConfig = {
   exclude: ['.DS_Store', '**/.DS_Store', 'Thumbs.db'],
   // ⚠️ deleteRemote: false durante desarrollo/pruebas
   // Cambiar a true SOLO para el deploy final que reemplaza WordPress
-  deleteRemote: false,
+  deleteRemote: true,
   forcePasv: true,
 };
 
