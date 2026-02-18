@@ -42,14 +42,14 @@ const {
       </div>
 
       <h1
-        class="text-5xl md:text-8xl font-extrabold text-white leading-[0.95] mb-8 animate-slide-up"
+        class="text-5xl md:text-8xl font-extrabold text-white leading-[1.1] mb-8 animate-slide-up"
       >
         {
           title
             .split(" ")
             .map((word, i) => (
               <span
-                class={`inline-block ${word.toLowerCase().includes("regla") ? "text-gradient" : ""}`}
+                class={`inline-block pb-2 ${word.toLowerCase().includes("regla") ? "text-gradient" : ""}`}
               >
                 {word}&nbsp;
               </span>
