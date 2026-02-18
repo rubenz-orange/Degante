@@ -1,4 +1,4 @@
-# Arquitectura del Sitio — Jiménez de Gante
+# Arquitectura del Sitio — Jiménez Degante
 
 Este documento describe la estructura técnica, flujo de datos y decisiones de diseño del nuevo sitio web basado en Astro.
 

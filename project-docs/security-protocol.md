@@ -1,4 +1,4 @@
-# Protocolo de Seguridad — Jiménez de Gante
+# Protocolo de Seguridad — Jiménez Degante
 
 > **Regla fundamental:** Ninguna llave, credencial, contraseña o token debe existir en el código fuente ni en el historial de git, bajo ninguna circunstancia.
 

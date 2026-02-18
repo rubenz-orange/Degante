@@ -42,7 +42,7 @@ const deployConfig = {
   forcePasv: true,
 };
 
-console.log('\n🚀 Iniciando deploy — Jiménez de Gante');
+console.log('\n🚀 Iniciando deploy — Jiménez Degante');
 console.log(`   Host:      ${process.env.FTP_HOST}`);
 console.log(`   Usuario:   ${process.env.FTP_USER}`);
 console.log(`   Destino:   ${deployConfig.remoteRoot}`);

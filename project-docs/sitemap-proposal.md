@@ -1,4 +1,4 @@
-# Propuesta de Sitemap — Jiménez de Gante
+# Propuesta de Sitemap — Jiménez Degante
 
 Este documento define la estructura de navegación y distribución de contenido para el nuevo sitio web, basado en el análisis del sitio actual (WordPress).
 

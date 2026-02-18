@@ -1,4 +1,4 @@
-# Master Plan: Jiménez de Gante Modernization
+# Master Plan: Jiménez Degante Modernization
 
 **Objective:** Migrate existing WordPress site (jimenezdegante.com) to a modern, high-performance stack using Astro and Tailwind CSS.
 

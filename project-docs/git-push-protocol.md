@@ -1,4 +1,4 @@
-# Protocolo de Git Push — Jiménez de Gante
+# Protocolo de Git Push — Jiménez Degante
 
 > **Regla fundamental:** Nunca hacer push directamente a `main`. Todo cambio pasa por una rama de trabajo y un pull request revisado.
 

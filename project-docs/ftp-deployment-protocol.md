@@ -1,4 +1,4 @@
-# Protocolo de Deployment FTP — Jiménez de Gante
+# Protocolo de Deployment FTP — Jiménez Degante
 
 > **Regla fundamental:** Las credenciales FTP **nunca** se escriben en comandos, scripts commiteados, ni en ningún archivo que pueda llegar a git. Solo se leen desde `.env.local`.
 
