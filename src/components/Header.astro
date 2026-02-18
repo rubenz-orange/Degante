@@ -14,27 +14,108 @@ const navItems = [
 ];
 ---
 
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <!-- Logo -->
-    <a href={`${import.meta.env.BASE_URL}/`} class="flex flex-col group">
-      <span
-        class="text-2xl font-bold text-gray-800 group-hover:text-primary transition-colors"
+<header
+  id="main-header"
+  class="fixed top-0 left-0 w-full z-[100] transition-all duration-500 py-6"
+>
+  <div class="container mx-auto px-6">
+    <div
+      class="glass rounded-2xl md:rounded-full px-6 py-3 flex justify-between items-center shadow-2xl shadow-black/5"
+    >
+      <!-- Logo -->
+      <a
+        href={`${import.meta.env.BASE_URL}/`}
+        class="flex items-center gap-3 group"
       >
-        Jiménez de Gante
-      </span>
-      <span class="text-sm text-gray-500 tracking-wider uppercase"
-        >Arquitectos & Consultores</span
-      >
-    </a>
+        <div
+          class="w-10 h-10 bg-dark rounded-lg flex items-center justify-center text-primary font-bold text-xl group-hover:rotate-12 transition-transform duration-500"
+        >
+          JG
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="text-xl font-bold text-dark tracking-tighter"
+            >Jiménez de Gante</span
+          >
+          <span
+            class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium"
+            >Arquitectos & Consultores</span
+          >
+        </div>
+      </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-8">
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-sm font-semibold text-slate-600 hover:text-primary transition-all relative group overflow-hidden"
+            >
+              {item.name}
+              <span class="absolute bottom-0 left-0 w-full h-[2px] bg-primary translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300" />
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a
+          href={`${import.meta.env.BASE_URL}/ubicacion`}
+          class="hidden sm:block bg-dark text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+        >
+          Contacto
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button id="mobile-toggle" class="lg:hidden p-2 text-dark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-dark/95 backdrop-blur-xl z-[110] flex flex-col p-10 translate-x-full transition-transform duration-500 lg:hidden"
+  >
+    <div class="flex justify-between items-center mb-16">
+      <div class="text-white font-bold text-2xl tracking-tighter">JG</div>
+      <button id="mobile-close" class="p-2 text-white/50 hover:text-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-6">
       {
         navItems.map((item) => (
           <a
             href={item.href}
-            class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+            class="text-3xl font-bold text-white/80 hover:text-primary hover:translate-x-4 transition-all duration-300"
           >
             {item.name}
           </a>
@@ -42,91 +123,38 @@ const navItems = [
       }
       <a
         href={`${import.meta.env.BASE_URL}/ubicacion`}
-        class="bg-primary hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold transition-colors shadow-sm"
+        class="mt-8 bg-primary text-dark text-center font-bold py-4 rounded-xl text-xl"
       >
-        Contacto
+        Contacto Directo
       </a>
     </nav>
-
-    <!-- Mobile Menu Button -->
-    <button
-      id="mobile-menu-btn"
-      class="md:hidden text-gray-800 focus:outline-none"
-      aria-label="Abrir menú"
-    >
-      <svg
-        class="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu Overlay -->
-  <div
-    id="mobile-menu"
-    class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8"
-  >
-    <button
-      id="close-menu-btn"
-      class="absolute top-6 right-6 text-gray-800"
-      aria-label="Cerrar menú"
-    >
-      <svg
-        class="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    {
-      navItems.map((item) => (
-        <a
-          href={item.href}
-          class="text-2xl font-bold text-gray-800 hover:text-primary transition-colors"
-        >
-          {item.name}
-        </a>
-      ))
-    }
-    <a
-      href={`${import.meta.env.BASE_URL}/ubicacion`}
-      class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold shadow-lg"
-    >
-      Contacto
-    </a>
   </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById("mobile-menu-btn");
-  const closeBtn = document.getElementById("close-menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
+  const header = document.getElementById("main-header");
+  const toggle = document.getElementById("mobile-toggle");
+  const close = document.getElementById("mobile-close");
+  const menu = document.getElementById("mobile-menu");
 
-  function toggleMenu() {
-    mobileMenu?.classList.toggle("translate-x-full");
-    document.body.classList.toggle("overflow-hidden");
-  }
-
-  menuBtn?.addEventListener("click", toggleMenu);
-  closeBtn?.addEventListener("click", toggleMenu);
-
-  // Close menu when clicking a link
-  mobileMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", toggleMenu);
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header?.classList.add("py-3");
+    } else {
+      header?.classList.remove("py-3");
+    }
   });
+
+  const openMenu = () => {
+    menu?.classList.remove("translate-x-full");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    menu?.classList.add("translate-x-full");
+    document.body.style.overflow = "";
+  };
+
+  toggle?.addEventListener("click", openMenu);
+  close?.addEventListener("click", closeMenu);
 </script>

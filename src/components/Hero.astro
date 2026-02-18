@@ -10,61 +10,145 @@ interface Props {
 const {
   title,
   subtitle,
-  ctaText = "Contáctanos",
+  ctaText = "Iniciar Proyecto",
   ctaLink = `${import.meta.env.BASE_URL}/ubicacion`,
-  backgroundImage = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80", // Imagen de arquitectura genérica high-quality
+  backgroundImage = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=90&w=1920",
 } = Astro.props;
 ---
 
 <section
-  class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center text-white"
+  class="relative min-h-screen flex items-center overflow-hidden bg-dark"
 >
-  <!-- Background Image with Overlay -->
+  <!-- Background Layers -->
   <div class="absolute inset-0 z-0">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-transparent z-10"
+    >
+    </div>
     <img
       src={backgroundImage}
       alt="Fondo Arquitectura"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover scale-110 animate-subtle-zoom"
     />
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-black/30"
-    >
+  </div>
+
+  <div class="container mx-auto px-6 relative z-20 pt-20">
+    <div class="max-w-4xl">
+      <div class="inline-flex items-center gap-3 mb-8 animate-fade-in">
+        <div class="h-[1px] w-12 bg-primary"></div>
+        <span class="text-primary font-bold tracking-[0.3em] text-xs uppercase"
+          >Establecidos desde 1999</span
+        >
+      </div>
+
+      <h1
+        class="text-5xl md:text-8xl font-extrabold text-white leading-[0.95] mb-8 animate-slide-up"
+      >
+        {
+          title
+            .split(" ")
+            .map((word, i) => (
+              <span
+                class={`inline-block ${word.toLowerCase().includes("regla") ? "text-gradient" : ""}`}
+              >
+                {word}&nbsp;
+              </span>
+            ))
+        }
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 leading-relaxed animate-fade-in delay-200"
+      >
+        {subtitle}
+      </p>
+
+      <div class="flex flex-wrap gap-6 animate-fade-in delay-300">
+        <a
+          href={ctaLink}
+          class="bg-primary hover:bg-white text-dark font-black tracking-widest uppercase text-xs px-10 py-5 rounded-full transition-all duration-500 hover:shadow-[0_0_30px_rgba(243,156,18,0.4)]"
+        >
+          {ctaText}
+        </a>
+        <a
+          href={`${import.meta.env.BASE_URL}/obras`}
+          class="group flex items-center gap-4 text-white font-bold tracking-widest uppercase text-xs"
+        >
+          <span
+            class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-dark transition-all duration-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </span>
+          Explorar Servicios
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Content -->
-  <div class="relative z-10 container mx-auto px-4 max-w-5xl">
-    <span
-      class="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary text-primary-light text-sm font-bold tracking-wider mb-6 backdrop-blur-sm"
+  <!-- Scroll Indicator -->
+  <div
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30"
+  >
+    <div
+      class="w-[1px] h-20 bg-gradient-to-b from-white to-transparent animate-pulse"
     >
-      SOLUCIONES INTEGRALES EN CONSTRUCCIÓN
-    </span>
-
-    <h1
-      class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg text-white"
-    >
-      {title}
-    </h1>
-
-    <p
-      class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed"
-    >
-      {subtitle}
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href={ctaLink}
-        class="bg-primary hover:bg-orange-600 text-white text-lg font-bold px-8 py-4 rounded-lg transition-all transform hover:translate-y-[-2px] hover:shadow-2xl shadow-lg border border-transparent"
-      >
-        {ctaText}
-      </a>
-      <a
-        href={`${import.meta.env.BASE_URL}/obras`}
-        class="bg-white/10 hover:bg-white text-white hover:text-gray-900 backdrop-blur-md border border-white/30 text-lg font-semibold px-8 py-4 rounded-lg transition-all"
-      >
-        Ver Servicios
-      </a>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes subtle-zoom {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1.15);
+    }
+  }
+  .animate-subtle-zoom {
+    animation: subtle-zoom 20s infinite alternate ease-in-out;
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-slide-up {
+    animation: slide-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in 1s ease-out forwards;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 400ms;
+  }
+</style>
