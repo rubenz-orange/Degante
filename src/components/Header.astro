@@ -57,10 +57,10 @@ const navItems = [
           navItems.map((item) => (
             <a
               href={item.href}
-              class={`text-sm tracking-tight transition-all relative group overflow-hidden ${
+              class={`text-sm font-semibold tracking-tight transition-all relative group overflow-hidden ${
                 isActive(item.href)
-                  ? "text-primary font-bold"
-                  : "text-slate-600 font-semibold hover:text-primary"
+                  ? "text-dark"
+                  : "text-slate-600 hover:text-primary"
               }`}
             >
               {item.name}
@@ -135,7 +135,7 @@ const navItems = [
             href={item.href}
             class={`text-3xl font-bold transition-all duration-300 ${
               isActive(item.href)
-                ? "text-primary translate-x-4"
+                ? "text-white border-l-4 border-primary pl-4"
                 : "text-white/80 hover:text-primary hover:translate-x-4"
             }`}
           >
