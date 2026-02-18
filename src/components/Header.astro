@@ -1,0 +1,126 @@
+---
+const navItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Obras", href: "/obras" },
+  { name: "Trámites Mercantiles", href: "/tramites-mercantiles" },
+  { name: "Trámites Generales", href: "/tramites-generales" },
+  { name: "Ubicación", href: "/ubicacion" },
+];
+---
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="flex flex-col group">
+      <span
+        class="text-2xl font-bold text-gray-800 group-hover:text-primary transition-colors"
+      >
+        Jiménez de Gante
+      </span>
+      <span class="text-sm text-gray-500 tracking-wider uppercase"
+        >Arquitectos & Consultores</span
+      >
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+      <a
+        href="/ubicacion"
+        class="bg-primary hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold transition-colors shadow-sm"
+      >
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-gray-800 focus:outline-none"
+      aria-label="Abrir menú"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8"
+  >
+    <button
+      id="close-menu-btn"
+      class="absolute top-6 right-6 text-gray-800"
+      aria-label="Cerrar menú"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-2xl font-bold text-gray-800 hover:text-primary transition-colors"
+        >
+          {item.name}
+        </a>
+      ))
+    }
+    <a
+      href="/ubicacion"
+      class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold shadow-lg"
+    >
+      Contacto
+    </a>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const closeBtn = document.getElementById("close-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle("translate-x-full");
+    document.body.classList.toggle("overflow-hidden");
+  }
+
+  menuBtn?.addEventListener("click", toggleMenu);
+  closeBtn?.addEventListener("click", toggleMenu);
+
+  // Close menu when clicking a link
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", toggleMenu);
+  });
+</script>

@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const serviceGroups = [
+  {
+    title: "Trámites y Gestorías",
+    items: [
+      "Constancia de alineamiento y número oficial",
+      "Manifestaciones de construcción (A, B y C)",
+      "Licencias especiales (Demoliciones, Excavaciones, Tapiales)",
+      "Regularización de obra ejecutada",
+      "Prórroga de manifestación",
+      "Terminación de obra y autorización de uso",
+      "Fusión y Subdivisión de predios",
+      "Visto Bueno de Seguridad y Operación",
+      "Anuncios (Licencia y Permiso)",
+    ],
+  },
+  {
+    title: "Proyecto y Diseño",
+    items: [
+      "Diseño de Obra Nueva",
+      "Proyectos de Ampliación",
+      "Modificaciones y Remodelaciones",
+      "Publicitación vecinal",
+    ],
+  },
+  {
+    title: "Servicios Complementarios",
+    items: [
+      "Levantamientos arquitectónicos y topográficos",
+      "Cálculo Estructural y Memorias",
+      "Dictámenes de Seguridad Estructural",
+      "Planos de Instalaciones (Hidrosanitaria, Eléctrica, Gas)",
+      "Supervisión y Auditoría de Obras",
+      "Mantenimiento Inmobiliario General",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Obras y Proyectos | Jiménez de Gante Arquitectos"
+  description="Gestión integral de licencias de construcción, regularización de obras y diseño arquitectónico en CDMX."
+>
+  <!-- Header Page -->
+  <div
+    class="relative bg-secondary py-20 text-center text-white overflow-hidden"
+  >
+    <div class="absolute inset-0 bg-black/40 z-0"></div>
+    <div class="relative z-10 container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Obras y Construcción</h1>
+      <p class="text-xl text-gray-200 max-w-2xl mx-auto font-light">
+        Soluciones técnicas y legales para materializar y regularizar su
+        proyecto inmobiliario.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          serviceGroups.map((group) => (
+            <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+              <div class="bg-gray-50 p-6 border-b border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-800 text-center">
+                  {group.title}
+                </h2>
+              </div>
+              <div class="p-8 flex-grow">
+                <ul class="space-y-4">
+                  {group.items.map((item) => (
+                    <li class="flex items-start text-gray-700">
+                      <svg
+                        class="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span class="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">
+        ¿Necesita regularizar una obra?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Nuestro equipo de expertos en DRO y normativa capitalina le ayudará a
+        mantener su patrimonio seguro y en regla.
+      </p>
+      <a
+        href="/ubicacion"
+        class="inline-block bg-primary hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg transition-transform transform hover:-translate-y-1"
+      >
+        Solicitar Asesoría Técnica
+      </a>
+    </div>
+  </section>
+</Layout>

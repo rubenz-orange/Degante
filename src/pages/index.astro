@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+
+// Datos de servicios principales
+const services = [
+  {
+    title: "Obras y Proyectos",
+    description:
+      "Gestión completa de manifestaciones de construcción, regularizaciones, licencias especiales y diseño arquitectónico.",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80",
+    link: "/obras",
+    icon: "🏗️",
+  },
+  {
+    title: "Trámites Mercantiles",
+    description:
+      "Apertura de negocios, licencias de funcionamiento, uso de suelo y programas de protección civil.",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80",
+    link: "/tramites-mercantiles",
+    icon: "🏢",
+  },
+  {
+    title: "Gestoría Administrativa",
+    description:
+      "Trámites ante SEDUVI, INBA, INAH y SEDEMA. Soluciones legales y administrativas.",
+    image:
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80",
+    link: "/tramites-generales",
+    icon: "📋",
+  },
+];
+
+// Clientes destacados (Texto por ahora, logos después)
+const clients = [
+  "Mobil Oil de México",
+  "Burger Boy",
+  "Librerías Gandhi",
+  "Restaurantes Lynis",
+  "Hotel Marquis Reforma",
+  "Hotel Emporio",
+  "Steren",
+  "Cemex",
+];
+
+// Certificaciones
+const certs = ["DRO", "C/DUYA", "C/SE", "C/I", "PDU"];
+---
+
+<Layout title="Jiménez de Gante | Arquitectos y Gestores CDMX">
+  <Hero
+    title="¿Los documentos de su obra y negocio están en regla?"
+    subtitle="Consultoría y Tramitología Integral con más de 25 años de experiencia en la Ciudad de México."
+    ctaText="Contáctanos Hoy"
+    ctaLink="/ubicacion"
+    backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+  />
+
+  <!-- Intro Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-primary font-bold tracking-wider uppercase mb-4 text-sm">
+        Nuestra Firma
+      </h2>
+      <h3
+        class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 leading-tight"
+      >
+        Expertos en regularización de obras y establecimientos mercantiles
+      </h3>
+      <p class="text-lg text-gray-600 leading-relaxed mb-10">
+        Somos un despacho constituido con más de <strong class="text-primary"
+          >25 años de trayectoria</strong
+        >. Contamos con un equipo multidisciplinario capacitado para resolver
+        cualquier requerimiento técnico, legal y administrativo ante las
+        autoridades de la CDMX.
+      </p>
+
+      <!-- Certificaciones Badges -->
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          certs.map((cert) => (
+            <span class="bg-gray-100 text-gray-700 px-6 py-2 rounded-full font-semibold border border-gray-200 shadow-sm hover:bg-gray-200 transition-colors cursor-default">
+              ✅ {cert}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Grid -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Nuestras Áreas de Especialidad
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Ofrecemos soluciones integrales divididas en tres grandes áreas para
+          cubrir todas las necesidades de su proyecto.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {
+          services.map((service) => (
+            <a
+              href={service.link}
+              class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full border border-gray-100"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-full p-3 shadow-md">
+                  <span class="text-2xl">{service.icon}</span>
+                </div>
+              </div>
+
+              <div class="p-8 flex-grow flex flex-col">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p class="text-gray-600 mb-6 flex-grow leading-relaxed">
+                  {service.description}
+                </p>
+                <span class="text-primary font-bold uppercase text-sm tracking-wide flex items-center mt-auto">
+                  Ver Detalles
+                  <svg
+                    class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Clientes Section -->
+  <section class="py-20 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h2
+        class="text-2xl font-bold text-center text-gray-400 uppercase tracking-widest mb-12"
+      >
+        Empresas que confían en nosotros
+      </h2>
+
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
+      >
+        <!-- Placeholder para logos reales -->
+        {
+          clients.map((client) => (
+            <div class="text-center group w-full p-4 hover:bg-gray-50 rounded-lg transition-colors">
+              <span class="text-xl font-bold text-gray-300 group-hover:text-gray-600 transition-colors">
+                {client}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-24 bg-secondary relative overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div
+      class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-8">
+        ¿Listo para iniciar su trámite?
+      </h2>
+      <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+        Evite multas y clausuras. Regularice su obra o negocio con la asesoría
+        de expertos certificados.
+      </p>
+      <a
+        href="/ubicacion"
+        class="inline-block bg-primary hover:bg-orange-600 text-white text-lg font-bold px-10 py-4 rounded-full shadow-lg hover:shadow-primary/50 transition-all transform hover:scale-105"
+      >
+        Solicitar Asesoría Gratuita
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText?: string;
+  ctaLink?: string;
+  backgroundImage?: string;
+}
+
+const {
+  title,
+  subtitle,
+  ctaText = "Contáctanos",
+  ctaLink = "/ubicacion",
+  backgroundImage = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80", // Imagen de arquitectura genérica high-quality
+} = Astro.props;
+---
+
+<section
+  class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center text-white"
+>
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={backgroundImage}
+      alt="Fondo Arquitectura"
+      class="w-full h-full object-cover"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-black/30"
+    >
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 max-w-5xl">
+    <span
+      class="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary text-primary-light text-sm font-bold tracking-wider mb-6 backdrop-blur-sm"
+    >
+      SOLUCIONES INTEGRALES EN CONSTRUCCIÓN
+    </span>
+
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg text-white"
+    >
+      {title}
+    </h1>
+
+    <p
+      class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed"
+    >
+      {subtitle}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={ctaLink}
+        class="bg-primary hover:bg-orange-600 text-white text-lg font-bold px-8 py-4 rounded-lg transition-all transform hover:translate-y-[-2px] hover:shadow-2xl shadow-lg border border-transparent"
+      >
+        {ctaText}
+      </a>
+      <a
+        href="/obras"
+        class="bg-white/10 hover:bg-white text-white hover:text-gray-900 backdrop-blur-md border border-white/30 text-lg font-semibold px-8 py-4 rounded-lg transition-all"
+      >
+        Ver Servicios
+      </a>
+    </div>
+  </div>
+</section>

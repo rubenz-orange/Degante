@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contactInfo = {
+  address:
+    "Plaza Buenavista No 2 - 306, Col. Guerrero, Alcaldía Cuauhtémoc, C.P. 06300, Ciudad de México.",
+  phones: ["5546 9274", "5535 3329"],
+  mobile: "55 3433 8168",
+  emails: ["degantearquitectos@yahoo.com.mx", "degantearq@gmail.com"],
+  hours: "Lunes a Viernes de 9:00 a 18:00 hrs.",
+};
+---
+
+<Layout
+  title="Ubicación y Contacto | Jiménez de Gante Arquitectos"
+  description="Visítenos en nuestras oficinas en Plaza Buenavista, CDMX. Asesoría presencial, telefónica y digital."
+>
+  <div class="min-h-[60vh] flex flex-col md:flex-row">
+    <!-- Info Panel / Formulario -->
+    <div
+      class="w-full md:w-1/3 bg-white p-8 md:p-12 lg:p-16 flex flex-col justify-center shadow-2xl z-10"
+    >
+      <span
+        class="text-primary font-bold uppercase tracking-widest text-sm mb-2"
+        >Contacto</span
+      >
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        Visítenos
+      </h1>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Dirección</h3>
+          <p class="text-gray-600 leading-relaxed">{contactInfo.address}</p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Teléfonos</h3>
+          <div class="flex flex-col space-y-2">
+            {
+              contactInfo.phones.map((phone) => (
+                <a
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                  class="text-secondary hover:text-primary transition-colors font-medium flex items-center"
+                >
+                  <svg
+                    class="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  {phone}
+                </a>
+              ))
+            }
+            <a
+              href={`tel:${contactInfo.mobile.replace(/\s/g, "")}`}
+              class="text-secondary hover:text-primary transition-colors font-medium flex items-center"
+            >
+              <svg
+                class="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path></svg
+              >
+              Cel: {contactInfo.mobile}
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">
+            Correo Electrónico
+          </h3>
+          <div class="flex flex-col space-y-2">
+            {
+              contactInfo.emails.map((email) => (
+                <a
+                  href={`mailto:${email}`}
+                  class="text-primary hover:text-orange-700 transition-colors font-medium break-words"
+                >
+                  {email}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Horario</h3>
+          <p class="text-gray-600">{contactInfo.hours}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <div
+      class="w-full md:w-2/3 bg-gray-200 h-[500px] md:h-auto min-h-[500px] relative"
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.382688846666!2d-99.15545622409549!3d19.43905098184139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d22dd65f2d%3A0xe1c0282924151740!2sPlaza%20Buenavista%202%2C%20Buenavista%2C%20Cuauht%C3%A9moc%2C%2006350%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1708200000000!5m2!1ses!2smx"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+      ></iframe>
+
+      <!-- Overlay text on map hover hint -->
+      <div
+        class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-bold text-gray-500 pointer-events-none shadow-md"
+      >
+        📍 Plaza Buenavista No. 2
+      </div>
+    </div>
+  </div>
+</Layout>
