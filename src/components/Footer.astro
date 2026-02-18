@@ -40,26 +40,34 @@
       </h3>
       <ul class="space-y-2 text-gray-400 text-sm">
         <li>
-          <a href="/" class="hover:text-primary transition-colors">Inicio</a>
-        </li>
-        <li>
-          <a href="/obras" class="hover:text-primary transition-colors"
-            >Obras</a>
+          <a
+            href={`${import.meta.env.BASE_URL}/`}
+            class="hover:text-primary transition-colors">Inicio</a
+          >
         </li>
         <li>
           <a
-            href="/tramites-mercantiles"
-            class="hover:text-primary transition-colors"
-            >Trámites Mercantiles</a>
+            href={`${import.meta.env.BASE_URL}/obras`}
+            class="hover:text-primary transition-colors">Obras</a
+          >
         </li>
         <li>
           <a
-            href="/tramites-generales"
-            class="hover:text-primary transition-colors">Trámites Generales</a>
+            href={`${import.meta.env.BASE_URL}/tramites-mercantiles`}
+            class="hover:text-primary transition-colors">Trámites Mercantiles</a
+          >
         </li>
         <li>
-          <a href="/ubicacion" class="hover:text-primary transition-colors"
-            >Ubicación</a>
+          <a
+            href={`${import.meta.env.BASE_URL}/tramites-generales`}
+            class="hover:text-primary transition-colors">Trámites Generales</a
+          >
+        </li>
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}/ubicacion`}
+            class="hover:text-primary transition-colors">Ubicación</a
+          >
         </li>
       </ul>
     </div>

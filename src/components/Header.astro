@@ -1,17 +1,23 @@
 ---
 const navItems = [
-  { name: "Inicio", href: "/" },
-  { name: "Obras", href: "/obras" },
-  { name: "Trámites Mercantiles", href: "/tramites-mercantiles" },
-  { name: "Trámites Generales", href: "/tramites-generales" },
-  { name: "Ubicación", href: "/ubicacion" },
+  { name: "Inicio", href: `${import.meta.env.BASE_URL}/` },
+  { name: "Obras", href: `${import.meta.env.BASE_URL}/obras` },
+  {
+    name: "Trámites Mercantiles",
+    href: `${import.meta.env.BASE_URL}/tramites-mercantiles`,
+  },
+  {
+    name: "Trámites Generales",
+    href: `${import.meta.env.BASE_URL}/tramites-generales`,
+  },
+  { name: "Ubicación", href: `${import.meta.env.BASE_URL}/ubicacion` },
 ];
 ---
 
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <!-- Logo -->
-    <a href="/" class="flex flex-col group">
+    <a href={`${import.meta.env.BASE_URL}/`} class="flex flex-col group">
       <span
         class="text-2xl font-bold text-gray-800 group-hover:text-primary transition-colors"
       >
@@ -35,7 +41,7 @@ const navItems = [
         ))
       }
       <a
-        href="/ubicacion"
+        href={`${import.meta.env.BASE_URL}/ubicacion`}
         class="bg-primary hover:bg-orange-600 text-white px-5 py-2 rounded-md font-semibold transition-colors shadow-sm"
       >
         Contacto
@@ -98,7 +104,7 @@ const navItems = [
       ))
     }
     <a
-      href="/ubicacion"
+      href={`${import.meta.env.BASE_URL}/ubicacion`}
       class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold shadow-lg"
     >
       Contacto

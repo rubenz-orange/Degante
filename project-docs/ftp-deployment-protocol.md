@@ -181,6 +181,37 @@ Durante la migración, el sitio WordPress sigue en vivo. El deploy de Astro se h
 | Validación | `/public_html/nuevo` | Cliente revisa y aprueba |
 | Producción | `/public_html` | Reemplaza WordPress definitivamente |
 
+---
+
+## 9. Despliegue en Subcarpetas (Staging)
+
+Mientras el sitio nuevo conviva con el actual, se debe usar una subcarpeta (ej: `/new/`). Esto requiere dos ajustes manuales en la configuración:
+
+### 9.1 Ajuste en `astro.config.mjs`
+Se debe configurar la propiedad `base` para que coincida con la subcarpeta del servidor:
+
+```javascript
+export default defineConfig({
+  site: 'https://jimenezdegante.com',
+  base: '/new', // ⚠️ MIENTRAS TRABAJEMOS EN /new/
+  // ...
+});
+```
+
+### 9.2 Regla de URLs Internas
+Para evitar que los links se rompan, **NUNCA** se deben usar rutas absolutas directas (ej: `href="/obras"`). 
+En su lugar, se debe prefijar con la ruta base de Astro:
+
+```astro
+<!-- ✅ Recomendado -->
+<a href={`${import.meta.env.BASE_URL}/obras`}>Obras</a>
+```
+
+Esto garantiza que si el sitio se mueve de `/new` a la raíz `/`, el cambio sea automático al modificar solo el `astro.config.mjs`.
+
+---
+
+## 10. Rollback de Emergencia
 > ⚠️ **Importante:** Cambiar `deleteRemote: false` a `true` **solo** en el deploy final que reemplaza WordPress. Antes de hacerlo, tener un backup completo del sitio actual.
 
 ---

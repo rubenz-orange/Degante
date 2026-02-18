@@ -11,7 +11,7 @@ const {
   title,
   subtitle,
   ctaText = "Contáctanos",
-  ctaLink = "/ubicacion",
+  ctaLink = `${import.meta.env.BASE_URL}/ubicacion`,
   backgroundImage = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80", // Imagen de arquitectura genérica high-quality
 } = Astro.props;
 ---
@@ -60,7 +60,7 @@ const {
         {ctaText}
       </a>
       <a
-        href="/obras"
+        href={`${import.meta.env.BASE_URL}/obras`}
         class="bg-white/10 hover:bg-white text-white hover:text-gray-900 backdrop-blur-md border border-white/30 text-lg font-semibold px-8 py-4 rounded-lg transition-all"
       >
         Ver Servicios
