@@ -42,13 +42,15 @@ const navItems = [
       <!-- Logo -->
       <a
         href={`${import.meta.env.BASE_URL}/`}
-        class="flex items-center gap-3 group"
+        class="flex items-center group -my-4"
       >
-        <img
-          src={logo.src}
-          alt="Jimenez de Gante Logo"
-          class="h-12 w-auto group-hover:scale-105 transition-transform duration-500"
-        />
+        <div class="h-20 w-64 overflow-hidden flex items-center justify-center">
+          <img
+            src={logo.src}
+            alt="Jimenez de Gante Logo"
+            class="h-44 w-auto min-w-[300px] object-contain group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
       </a>
 
       <!-- Desktop Nav -->
