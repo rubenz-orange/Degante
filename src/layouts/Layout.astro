@@ -25,27 +25,71 @@ const {
     <link rel="icon" type="image/svg+xml" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
 
+    <meta name="author" content="Jiménez Degante Arquitectos" />
+    <meta name="geo.region" content="MX-CMX" />
+    <meta name="geo.placename" content="Ciudad de México" />
+    <meta name="geo.position" content="19.439051;-99.155456" />
+    <meta name="ICBM" content="19.439051, -99.155456" />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Global Structured Data (AISO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Jiménez Degante Arquitectos",
+        "alternateName": "Jiménez Degante",
+        "logo": "https://jimenezdegante.com/favicon.svg",
+        "image": "https://jimenezdegante.com/social-share.jpg",
+        "description": "Firma experta en arquitectura técnica y legal en la CDMX con más de 25 años de experiencia. Especialistas en DRO, Protección Civil y gestoría ante SEDUVI, INBA e INAH.",
+        "url": "https://jimenezdegante.com",
+        "telephone": "+5255469274",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza Buenavista No 2 - 306, Col. Guerrero",
+          "addressLocality": "Ciudad de México",
+          "addressRegion": "CDMX",
+          "postalCode": "06300",
+          "addressCountry": "MX"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.439051,
+          "longitude": -99.155456
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "sameAs": ["https://jimenezdegante.com"]
+      }
+    </script>
+    <slot name="head" />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen">
     <Header />

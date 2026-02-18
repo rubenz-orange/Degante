@@ -39,9 +39,51 @@ const services = [
 ---
 
 <Layout
-  title="Trámites Mercantiles | Apertura y Operación Segura"
-  description="Gestoría premium para negocios: del uso de suelo a la licencia de funcionamiento y protección civil."
+  title="Trámites Mercantiles y Protección Civil | Jiménez Degante CDMX"
+  description="Gestoría integral para negocios en CDMX. Licencia de funcionamiento, programas de protección civil, uso de suelo y regularización mercantil."
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Gestoría Mercantil y Protección Civil",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Jiménez Degante Arquitectos"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ciudad de México"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Trámites de Negocios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Programas Internos de Protección Civil"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Licencia de Funcionamiento"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Certificado de Zonificación de Uso de Suelo"
+            }
+          }
+        ]
+      }
+    }
+  </script>
   <!-- Modern Header -->
   <section class="pt-48 pb-32 bg-slate-50 text-dark relative overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">

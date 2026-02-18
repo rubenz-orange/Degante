@@ -43,9 +43,51 @@ const serviceGroups = [
 ---
 
 <Layout
-  title="Obras y Proyectos | Ejecución con Precisión Técnica"
-  description="Gestión técnica integral de licencias, diseño y regularización de obras en CDMX."
+  title="Obras y Proyectos | Jiménez Degante | DRO y Gestoría CDMX"
+  description="Expertos Directores Responsables de Obra (DRO) en CDMX. Licencias de construcción, manifestaciones, regularizaciones y diseño arquitectónico técnico."
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Arquitectura y Gestoría de Obra",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Jiménez Degante Arquitectos"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ciudad de México"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Obra",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Directores Responsables de Obra (DRO)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Manifestaciones de Construcción"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Regularización de Obra"
+            }
+          }
+        ]
+      }
+    }
+  </script>
   <!-- Modern Hero Page -->
   <section class="pt-40 pb-24 bg-dark text-white relative overflow-hidden">
     <div

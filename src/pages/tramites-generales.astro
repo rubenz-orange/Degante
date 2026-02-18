@@ -37,9 +37,51 @@ const sections = [
 ---
 
 <Layout
-  title="Trámites Generales | Gestión Administrativa Estratégica"
-  description="Expertos en navegación burocrática ante SEDUVI, INBA, INAH y SEDEMA en la CDMX."
+  title="Gestoría Administrativa SEDUVI, INBA, INAH | Jiménez Degante CDMX"
+  description="Gestión estratégica ante dependencias de gobierno en CDMX. Especialistas en SEDUVI, INBA, INAH y SEDEMA para regularización inmobiliaria."
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Gestoría Administrativa Multidependencia",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "Jiménez Degante Arquitectos"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ciudad de México"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Gestoría Gubernamental",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Trámites SEDUVI (Uso de Suelo)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Conservación de Patrimonio (INBA/INAH)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Impacto Ambiental (SEDEMA)"
+            }
+          }
+        ]
+      }
+    }
+  </script>
   <!-- Minimal Header -->
   <section class="pt-48 pb-32 bg-dark text-white relative">
     <div class="container mx-auto px-6 relative z-10">

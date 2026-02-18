@@ -12,9 +12,52 @@ const contactInfo = {
 ---
 
 <Layout
-  title="Ubicación y Contacto | Presencia Estratégica en el Centro"
-  description="Contáctenos en nuestra sede en Plaza Buenavista, Cuauhtémoc. Expertos a su alcance."
+  title="Ubicación y Contacto | Jiménez Degante | Sede Buenavista CDMX"
+  description="Contacte a Jiménez Degante Arquitectos en Cuauhtémoc, CDMX. Teléfonos oficina: 55 4692 74 y 55 3533 29. Atención presencial en Plaza Buenavista."
 >
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "ProfessionalService",
+        "name": "Jiménez Degante Arquitectos",
+        "image": "https://jimenezdegante.com/social-share.jpg",
+        "telephone": "+5255469274",
+        "email": "degantearquitectos@yahoo.com.mx",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza Buenavista No 2 - 306, Col. Guerrero",
+          "addressLocality": "Ciudad de México",
+          "addressRegion": "CDMX",
+          "postalCode": "06300",
+          "addressCountry": "MX"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 19.439051,
+          "longitude": -99.155456
+        },
+        "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+5255469274",
+            "contactType": "customer service",
+            "areaServed": "MX",
+            "availableLanguage": "Spanish"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+525534338168",
+            "contactType": "mobile",
+            "areaServed": "MX",
+            "availableLanguage": "Spanish"
+          }
+        ]
+      }
+    }
+  </script>
   <div class="min-h-screen flex flex-col lg:flex-row bg-white overflow-hidden">
     <!-- Info Panel -->
     <div
