@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 const contactInfo = {
   address:
     "Plaza Buenavista No 2 - 306, Col. Guerrero, Alcaldía Cuauhtémoc, C.P. 06300, Ciudad de México.",
-  phones: ["55 4692 74", "55 3533 29"],
+  phones: ["55 1795 3511", "55 3433 8168"],
   mobile: "55 3433 8168",
   emails: ["degantearquitectos@yahoo.com.mx", "degantearq@gmail.com"],
   hours: "Lunes a Viernes de 9:00 a 18:00 hrs.",
@@ -13,7 +13,7 @@ const contactInfo = {
 
 <Layout
   title="Ubicación y Contacto | Jiménez Degante | Sede Buenavista CDMX"
-  description="Contacte a Jiménez Degante Arquitectos en Cuauhtémoc, CDMX. Teléfonos oficina: 55 4692 74 y 55 3533 29. Atención presencial en Plaza Buenavista."
+  description="Contacte a Jiménez Degante Arquitectos en Cuauhtémoc, CDMX. Teléfonos oficina: 55 1795 3511 y 55 3433 8168. Atención presencial en Plaza Buenavista."
 >
   <script type="application/ld+json" slot="head">
     {
@@ -23,7 +23,7 @@ const contactInfo = {
         "@type": "ProfessionalService",
         "name": "Jiménez Degante Arquitectos",
         "image": "https://jimenezdegante.com/social-share.jpg",
-        "telephone": "+5255469274",
+        "telephone": "+525517953511",
         "email": "degantearquitectos@yahoo.com.mx",
         "address": {
           "@type": "PostalAddress",
@@ -42,7 +42,7 @@ const contactInfo = {
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "telephone": "+5255469274",
+            "telephone": "+525517953511",
             "contactType": "customer service",
             "areaServed": "MX",
             "availableLanguage": "Spanish"
@@ -90,7 +90,7 @@ const contactInfo = {
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Phone Row -->
             <div>
               <h3
@@ -123,12 +123,6 @@ const contactInfo = {
                     </a>
                   ))
                 }
-                <a
-                  href={`tel:${contactInfo.mobile.replace(/\s/g, "")}`}
-                  class="text-xl font-bold text-slate-500 hover:text-primary transition-all mt-4 border-t border-slate-200 pt-4 block"
-                >
-                  Cel: {contactInfo.mobile}
-                </a>
               </div>
             </div>
 
@@ -144,7 +138,7 @@ const contactInfo = {
                   contactInfo.emails.map((email) => (
                     <a
                       href={`mailto:${email}`}
-                      class="text-sm font-bold text-dark hover:text-primary truncate transition-all underline decoration-primary/30 decoration-2 underline-offset-4"
+                      class="text-sm font-bold text-dark hover:text-primary transition-all underline decoration-primary/30 decoration-2 underline-offset-4"
                     >
                       {email}
                     </a>
